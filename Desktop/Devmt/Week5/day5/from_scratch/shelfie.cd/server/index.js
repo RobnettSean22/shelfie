@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const massive = require('massive')
 require("dotenv").config()
-const{add, getOne, getAll, deleteIt} = require('./Controller/store_controller')
+const{add, getOne, getAll, updateIt, deleteIt} = require('./Controller/store_controller')
 app.use(express.json())
 const {CONNECTION_STRING} = process.env;
 console.log(CONNECTION_STRING)
@@ -21,6 +21,8 @@ app.get('/api/product/:id',  getOne)
 app.post('/api/product', add)
 
 app.delete('/api/product/:id' , deleteIt)
+
+app.put('/api/product/:id' ,updateIt)
  
 
 

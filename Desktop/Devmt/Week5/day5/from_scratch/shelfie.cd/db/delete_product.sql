@@ -1,3 +1,3 @@
 DELETE FROM store
-WHERE product_id = $2;
+WHERE product_id = $1;
 SELECT * FROM store;
