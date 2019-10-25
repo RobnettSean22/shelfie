@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
-const {readListings} = require('./controller/controller')
+const {readListings, readListing, createListing, editListing, deleteListing } = require('./controller/controller')
 const app = express()
 app.use(express.json())
 
@@ -20,6 +20,14 @@ app.use(session({
 }))
 
 app.get('/api/view_listings', readListings)
+
+app.get('/api/view_listing/:id', readListing)
+
+app.post('/api/create_listing', createListing)
+
+app.put('/api/edit_listing/:id', editListing)
+
+app.delete('/api/delete_listing/:id', deleteListing)
 
 const port = 5000
 
